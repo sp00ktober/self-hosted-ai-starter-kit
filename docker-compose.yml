@@ -125,10 +125,14 @@ services:
     <<: *service-ollama
     image: ollama/ollama:rocm
     environment:
-      - HSA_OVERRIDE_GFX_VERSION=10.3.0
+      - HSA_OVERRIDE_GFX_VERSION=10.1.0
     devices:
       - "/dev/kfd"
       - "/dev/dri"
+    entrypoint: /bin/sh
+    command:
+      - "-c"
+      - "ln -s /usr/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx{1030,1010}.dat; /bin/ollama serve"
 
   ollama-pull-llama-cpu:
     profiles: ["cpu"]

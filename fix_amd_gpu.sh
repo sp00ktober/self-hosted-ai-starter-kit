@@ -1,0 +1,1 @@
+ln -s /usr/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx{1030,1010}.dat
