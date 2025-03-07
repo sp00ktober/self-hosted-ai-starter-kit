@@ -85,7 +85,10 @@ services:
     ports:
       - 5678:5678
     environment:
-      - WEBHOOK_TUNNEL_URL=n8n.datengrab.ddns.net
+      - N8N_HOST=n8n.datengrab.ddns.net
+      - N8N_PORT=443
+      - N8N_PROTOCOL=https
+      - WEBHOOK_TUNNEL_URL=https://n8n.datengrab.ddns.net/
     volumes:
       - n8n_storage:/home/node/.n8n
       - ./n8n/backup:/backup
