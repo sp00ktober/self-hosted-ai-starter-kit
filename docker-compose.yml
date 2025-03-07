@@ -84,6 +84,8 @@ services:
     restart: unless-stopped
     ports:
       - 5678:5678
+    environment:
+      - WEBHOOK_TUNNEL_URL=n8n.datengrab.ddns.net
     volumes:
       - n8n_storage:/home/node/.n8n
       - ./n8n/backup:/backup
